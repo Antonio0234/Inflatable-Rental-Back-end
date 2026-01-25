@@ -2,7 +2,5 @@ server:
   port: 8081
 
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/napuhanci
-    username: postgres
-    password: CHANGE_ME
+  profiles:
+    active: local
