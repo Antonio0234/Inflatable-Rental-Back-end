@@ -62,4 +62,40 @@ public class BookingRequest {
     public void setPlace(String place) { this.place = place; }
     public void setDate(LocalDate date) { this.date = date; }
     public void setStatus(BookingStatus status) { this.status = status; }
+    // --- SNAPSHOT ---
+    public BigDecimal getPriceAtConfirm() { return priceAtConfirm; }
+    public BigDecimal getDeliveryFeeAtConfirm() { return deliveryFeeAtConfirm; }
+    public BigDecimal getTotalAtConfirm() { return totalAtConfirm; }
+
+    public void setPriceAtConfirm(BigDecimal priceAtConfirm) {
+        this.priceAtConfirm = priceAtConfirm;
+    }
+
+    public void setDeliveryFeeAtConfirm(BigDecimal deliveryFeeAtConfirm) {
+        this.deliveryFeeAtConfirm = deliveryFeeAtConfirm;
+    }
+
+    public void setTotalAtConfirm(BigDecimal totalAtConfirm) {
+        this.totalAtConfirm = totalAtConfirm;
+    }
+
+    // --- TIMESTAMPS ---
+    public OffsetDateTime getCreatedAt() { return createdAt; }
+    public OffsetDateTime getConfirmedAt() { return confirmedAt; }
+    public OffsetDateTime getRejectedAt() { return rejectedAt; }
+
+    public void setConfirmedAt(OffsetDateTime confirmedAt) {
+        this.confirmedAt = confirmedAt;
+    }
+
+    public void setRejectedAt(OffsetDateTime rejectedAt) {
+        this.rejectedAt = rejectedAt;
+    }
+
+    // --- ADMIN ---
+    public String getAdminNote() { return adminNote; }
+
+    public void setAdminNote(String adminNote) {
+        this.adminNote = adminNote;
+    }
 }

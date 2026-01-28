@@ -5,9 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class NapuhanciApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(NapuhanciApplication.class, args);
 	}
-
 }
+

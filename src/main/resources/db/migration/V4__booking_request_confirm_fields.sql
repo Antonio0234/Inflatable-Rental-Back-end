@@ -1,0 +1,7 @@
+ALTER TABLE booking_requests
+    ADD COLUMN IF NOT EXISTS price_at_confirm NUMERIC(10,2),
+    ADD COLUMN IF NOT EXISTS delivery_fee_at_confirm NUMERIC(10,2),
+    ADD COLUMN IF NOT EXISTS total_at_confirm NUMERIC(10,2),
+    ADD COLUMN IF NOT EXISTS confirmed_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS rejected_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS admin_note VARCHAR(500);
