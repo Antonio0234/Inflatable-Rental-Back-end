@@ -14,6 +14,7 @@ public interface BookingRequestRepository extends JpaRepository<BookingRequest, 
             LocalDate date,
             BookingStatus status
     );
-
+    List<BookingRequest> findByStatus(BookingStatus status);
     List<BookingRequest> findByStatusOrderByIdDesc(BookingStatus status);
 }
+

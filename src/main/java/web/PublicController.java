@@ -4,6 +4,7 @@ import com.antonio.napuhanci.domain.Inflatable;
 import com.antonio.napuhanci.service.AvailabilityService;
 import com.antonio.napuhanci.service.InflatableService;
 import org.springframework.web.bind.annotation.*;
+import com.antonio.napuhanci.service.CalendarService;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,19 +15,29 @@ public class PublicController {
 
     private final InflatableService inflatableService;
     private final AvailabilityService availabilityService;
+    private final CalendarService calendarService;
 
-    public PublicController(InflatableService inflatableService, AvailabilityService availabilityService) {
+    public PublicController(InflatableService inflatableService,
+                            AvailabilityService availabilityService,
+                            CalendarService calendarService) {
+
         this.inflatableService = inflatableService;
         this.availabilityService = availabilityService;
+        this.calendarService = calendarService;
     }
 
     @GetMapping("/inflatables")
     public List<Inflatable> inflatables() {
         return inflatableService.getActiveInflatables();
     }
+    @GetMapping(value = "/calendar.ics", produces = "text/calendar")
+    public String calendar() {
+        return calendarService.generateCalendar();
+    }
 
     @GetMapping("/inflatables/{id}/availability")
     public boolean availability(@PathVariable Long id, @RequestParam LocalDate date) {
         return availabilityService.isAvailable(id, date);
     }
+
 }
